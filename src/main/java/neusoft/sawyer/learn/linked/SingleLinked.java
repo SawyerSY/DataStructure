@@ -1,5 +1,6 @@
 package neusoft.sawyer.learn.linked;
 
+import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
@@ -39,6 +40,10 @@ public class SingleLinked<E> implements Linked<E> {
     public SingleLinked() {
     }
 
+    public SingleLinked(Collection<? extends E> c) {
+        this.addAll(c);
+    }
+
     // endregion
 
 
@@ -55,6 +60,12 @@ public class SingleLinked<E> implements Linked<E> {
             throw new NullPointerException();
         }
         this.linkLast(e);
+        return true;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        c.forEach(this::add);
         return true;
     }
 

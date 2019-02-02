@@ -1,6 +1,6 @@
 package neusoft.sawyer.learn.linked;
 
-import java.util.Objects;
+import java.util.Collection;
 
 /**
  * Created by sawyer on 2019-02-01.
@@ -9,6 +9,11 @@ import java.util.Objects;
  */
 public interface Linked<E> {
 
+    /**
+     * Size int.
+     *
+     * @return the int
+     */
     int size();
 
     /**
@@ -18,6 +23,14 @@ public interface Linked<E> {
      * @return return true
      */
     boolean add(E e);
+
+    /**
+     * Add all boolean.
+     *
+     * @param c not null element
+     * @return return true
+     */
+    boolean addAll(Collection<? extends E> c);
 
     /**
      * Remove boolean.
