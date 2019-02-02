@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
  *
  * @param <E> the type parameter
  */
-public interface Linked<E> {
+public interface LinkedList<E> {
 
     /**
      * Size int.

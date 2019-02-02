@@ -7,15 +7,15 @@ import java.util.Objects;
 /**
  * Created by sawyer on 2019-02-01.
  */
-public class SingleLinked<E> implements Linked<E> {
+public class SinglyLinkedList<E> implements LinkedList<E> {
 
     // region 成员变量
 
     private transient int size = 0;
 
-    private transient SingleLinked.Node<E> first;
+    private transient SinglyLinkedList.Node<E> first;
 
-    private transient SingleLinked.Node<E> last;
+    private transient SinglyLinkedList.Node<E> last;
 
     // endregion
 
@@ -24,9 +24,9 @@ public class SingleLinked<E> implements Linked<E> {
 
     private static class Node<E> {
         E item;
-        SingleLinked.Node<E> next;
+        SinglyLinkedList.Node<E> next;
 
-        Node(E element, SingleLinked.Node<E> next) {
+        Node(E element, SinglyLinkedList.Node<E> next) {
             this.item = element;
             this.next = next;
         }
@@ -37,10 +37,10 @@ public class SingleLinked<E> implements Linked<E> {
 
     // region 构造方法
 
-    public SingleLinked() {
+    public SinglyLinkedList() {
     }
 
-    public SingleLinked(Collection<? extends E> c) {
+    public SinglyLinkedList(Collection<? extends E> c) {
         this.addAll(c);
     }
 
