@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * Created by sawyer on 2019-02-01.
  */
-public class SinglyLinkedTest {
+public class SinglyLinkedListTest {
 
     @Test
     public void test1() {
