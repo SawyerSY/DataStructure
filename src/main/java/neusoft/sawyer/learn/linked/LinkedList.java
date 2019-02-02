@@ -13,7 +13,7 @@ public interface LinkedList<E> {
     /**
      * Size int.
      *
-     * @return the int
+     * @return the collection size
      */
     int size();
 
@@ -21,10 +21,9 @@ public interface LinkedList<E> {
      * Add boolean.
      *
      * @param e not null element
-     * @return return true
      * @throws NullPointerException element is null
      */
-    boolean add(E e);
+    void add(E e);
 
     /**
      * Add boolean.

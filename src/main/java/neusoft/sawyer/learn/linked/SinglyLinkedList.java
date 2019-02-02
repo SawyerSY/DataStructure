@@ -55,12 +55,11 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return this.size;
     }
 
-    public boolean add(E e) {
+    public void add(E e) {
         if (Objects.isNull(e)) {
             throw new NullPointerException();
         }
         this.linkLast(e);
-        return true;
     }
 
     @Override
