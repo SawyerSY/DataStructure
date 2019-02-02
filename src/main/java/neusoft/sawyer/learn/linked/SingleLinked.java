@@ -152,6 +152,24 @@ public class SingleLinked<E> implements Linked<E> {
     // endregion
 
 
+    // region 方法重写
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        for (Node<E> x = this.first; Objects.nonNull(x); x = x.next) {
+            sb.append(x.item.toString());
+            if (!Objects.isNull(x.next)) {
+                sb.append(',').append(' ');
+            }
+        }
+        sb.append(']');
+        return sb.toString();
+    }
+
+    // endregion
+
+
     // region 私有方法
 
     private void linkLast(E e) {
