@@ -110,6 +110,29 @@ public class SingleLinked<E> implements Linked<E> {
         return last.item;
     }
 
+    @Override
+    public E get(int index) {
+        this.checkElementIndex(index);
+        return this.node(index).item;
+    }
+
+    @Override
+    public int indexOf(E e) {
+        if (Objects.isNull(e)) {
+            throw new NullPointerException();
+        }
+
+        int index = 0;
+        for (Node<E> x = this.first; Objects.nonNull(x); x = x.next) {
+            if (Objects.equals(e, x.item)) {
+                return index;
+            }
+            index++;
+        }
+
+        return -1;
+    }
+
     // endregion
 
 
@@ -140,6 +163,33 @@ public class SingleLinked<E> implements Linked<E> {
 
         this.size--;
         return element;
+    }
+
+    /**
+     * Returns the (non-null) Node at the specified element index.
+     */
+    private Node<E> node(int index) {
+        // assert isElementIndex(index);
+
+        Node<E> x = this.first;
+        for (int i = 0; i < index; i++) {
+            x = x.next;
+        }
+        return x;
+    }
+
+    private void checkElementIndex(int index) {
+        if (!this.isElementIndex(index)) {
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
+    }
+
+    private boolean isElementIndex(int index) {
+        return index >= 0 && index < size;
+    }
+
+    private String outOfBoundsMsg(int index) {
+        return "Index: " + index + ", Size: " + size;
     }
 
     // endregion

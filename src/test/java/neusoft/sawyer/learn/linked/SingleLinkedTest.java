@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class SingleLinkedTest {
 
     @Test
-    public void test() {
+    public void test1() {
         Linked<Integer> linked = new SingleLinked<>();
         linked.add(1);
         linked.add(2);
@@ -29,10 +29,19 @@ public class SingleLinkedTest {
     }
 
     @Test
-    public void test1() {
+    public void test2() {
         Linked<Integer> linked = new SingleLinked<>(Arrays.asList(1, 2, 3, 4, 5));
         System.out.println(linked.size());
         System.out.println(linked.getFirst());
         System.out.println(linked.getLast());
+    }
+
+    @Test
+    public void test3() {
+        Linked<Integer> linked = new SingleLinked<>(Arrays.asList(1, 2, 3, 4, 5));
+        System.out.println(linked.get(4));
+        System.out.println(linked.indexOf(5));
+        System.out.println(linked.indexOf(10));
+        System.out.println(linked.get(5));
     }
 }
