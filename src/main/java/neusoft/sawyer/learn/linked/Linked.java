@@ -27,6 +27,16 @@ public interface Linked<E> {
     boolean add(E e);
 
     /**
+     * Add boolean.
+     *
+     * @param index index at which the specified element is to be inserted
+     * @param e     not null element
+     * @throws NullPointerException      element is null
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    void add(int index, E e);
+
+    /**
      * Add all boolean.
      *
      * @param c not null element
@@ -77,8 +87,7 @@ public interface Linked<E> {
      * Get the first specified index by element.
      *
      * @param e element to search for
-     * @return the index of the first occurrence of the specified element in
-     * this list, or -1 if this list does not contain the element
+     * @return the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element
      */
     int indexOf(E e);
 }

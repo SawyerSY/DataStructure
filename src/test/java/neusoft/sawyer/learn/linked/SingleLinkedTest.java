@@ -44,4 +44,14 @@ public class SingleLinkedTest {
         System.out.println(linked.indexOf(10));
         System.out.println(linked.get(5));
     }
+
+    @Test
+    public void test4() {
+        Linked<Integer> linked = new SingleLinked<>(Arrays.asList(1, 2, 3, 4, 5));
+        linked.add(0, 0);
+        linked.add(6, 6);
+        for (int i = 0; i < linked.size(); i++) {
+            System.out.println(linked.get(i));
+        }
+    }
 }

@@ -64,6 +64,22 @@ public class SingleLinked<E> implements Linked<E> {
     }
 
     @Override
+    public void add(int index, E e) {
+        if (Objects.isNull(e)) {
+            throw new NullPointerException();
+        }
+        this.checkPositionIndex(index);
+
+        if (Objects.equals(size, index)) {
+            this.linkLast(e);
+        } else {
+            Node<E> pre = Objects.equals(0, index) ? null : this.node(index - 1);
+            Node<E> succ = Objects.equals(0, index) ? this.first : this.node(index);
+            this.linkBefore(e, pre, succ);
+        }
+    }
+
+    @Override
     public boolean addAll(Collection<? extends E> c) {
         c.forEach(this::add);
         return true;
@@ -150,6 +166,20 @@ public class SingleLinked<E> implements Linked<E> {
         this.size++;
     }
 
+    /**
+     * Inserts element e before non-null Node succ.
+     */
+    private void linkBefore(E e, Node<E> pre, Node<E> succ) {
+        // assert succ != null;
+        Node<E> newNode = new Node<>(e, succ);
+        if (Objects.isNull(pre)) {
+            this.first = newNode;
+        } else {
+            pre.next = newNode;
+        }
+        this.size++;
+    }
+
     private E unlink(Node<E> x) {
         final E element = x.item;
         final Node<E> next = x.next;
@@ -170,7 +200,6 @@ public class SingleLinked<E> implements Linked<E> {
      */
     private Node<E> node(int index) {
         // assert isElementIndex(index);
-
         Node<E> x = this.first;
         for (int i = 0; i < index; i++) {
             x = x.next;
@@ -186,6 +215,16 @@ public class SingleLinked<E> implements Linked<E> {
 
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size;
+    }
+
+    private void checkPositionIndex(int index) {
+        if (!this.isPositionIndex(index)) {
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+        }
+    }
+
+    private boolean isPositionIndex(int index) {
+        return index >= 0 && index <= size;
     }
 
     private String outOfBoundsMsg(int index) {
