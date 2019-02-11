@@ -40,6 +40,12 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     public SinglyLinkedList() {
     }
 
+    public SinglyLinkedList(E... es) {
+        for (E e : es) {
+            this.add(e);
+        }
+    }
+
     public SinglyLinkedList(Collection<? extends E> c) {
         this.addAll(c);
     }
@@ -48,7 +54,6 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
 
     // region 公共方法
-
 
     @Override
     public int size() {

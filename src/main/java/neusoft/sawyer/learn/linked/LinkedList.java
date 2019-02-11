@@ -5,8 +5,6 @@ import java.util.NoSuchElementException;
 
 /**
  * Created by sawyer on 2019-02-01.
- *
- * @param <E> the type parameter
  */
 public interface LinkedList<E> {
 
