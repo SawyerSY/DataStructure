@@ -19,23 +19,23 @@ public interface Tree<E> {
     /**
      * Tree degree.
      *
-     * @return the int
+     * @return the max children count
      */
     int degree();
 
     /**
      * Tree Depth.
      *
-     * @return the int
+     * @return the max depth size
      */
     int depth();
 
     /**
      * Insert children to specified parent.
      *
-     * @param parent   the parent, if there are multiple, insert to the first.
-     * @param children the children.
-     * @return if not exists specified parent, return false.
+     * @param parent   the parent, if there are multiple, insert to the first
+     * @param children the children
+     * @return if not exists specified parent, return false
      */
     boolean insertChildren(E parent, E[] children);
 
@@ -43,7 +43,7 @@ public interface Tree<E> {
      * Remove element, if there are multiple, insert to the first.
      *
      * @param e specified element
-     * @return if not exists specified parent, return false.
+     * @return if not exists specified parent, return false
      */
     boolean remove(E e);
 
@@ -55,47 +55,49 @@ public interface Tree<E> {
     /**
      * Gets root.
      *
-     * @return the root element.
+     * @return the root element
      */
     E getRoot();
 
     /**
-     * 返回目标元素的索引
+     * Return specified element children index arr.
      *
-     * @param e parent element.
-     * @return the children.
+     * @param e specified element
+     * @return if not exists the element, return empty arr
      */
     int[] getChildren(E e);
 
     /**
-     * 获取匹配的元素索引
+     * Get specified element index.
      *
-     * @param index 索引
-     * @return 找到一个则返回 ，如果找不到则返回-1
+     * @param e element
+     * @return first found element index, if not exists element, return -1
      */
-    int indexOf(E index);
+    int indexOf(E e);
 
     /**
-     * Get e.
+     * Get element.
      *
-     * @param index the index
-     * @return the e
+     * @param index specified index
+     * @return the first found
+     * @throws IndexOutOfBoundsException index is out of bounds
      */
     E get(int index);
 
     /**
-     * 获取父节点索引
+     * Get parent.
      *
      * @param index the index
-     * @return 返回父节点索引 ，Root节点则返回-1
+     * @return if root index, return -1
+     * @throws IndexOutOfBoundsException index is out of bounds
      */
     int getParent(int index);
 
     /**
-     * Depth of element.
+     * Root to element depth.
      *
      * @param e the element's depth
-     * @return the int
+     * @return if not exists return -1
      */
     int depthOf(E e);
 
@@ -103,14 +105,13 @@ public interface Tree<E> {
      * Contains boolean.
      *
      * @param e the e
-     * @return the boolean
      */
     boolean contains(E e);
 
     /**
-     * Get path linked list [ ].
+     * Get leaf node to root path arr.
      *
-     * @return the linked list [ ]
+     * @return the path
      */
     List<Integer>[] getPath();
 
