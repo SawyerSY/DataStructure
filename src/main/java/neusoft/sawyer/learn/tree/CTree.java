@@ -1,9 +1,6 @@
 package neusoft.sawyer.learn.tree;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Created by sawyer on 2019-02-11.
@@ -34,7 +31,7 @@ public class CTree<E> implements Tree<E> {
 
         CTNode(E item, int[] children) {
             this.item = item;
-            this.children = new ArrayList<>();
+            this.children = new LinkedList<>();
             for (Integer child : children) {
                 this.children.add(child);
             }
