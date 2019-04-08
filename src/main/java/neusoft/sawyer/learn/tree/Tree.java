@@ -1,5 +1,7 @@
 package neusoft.sawyer.learn.tree;
 
+import java.util.List;
+
 /**
  * Created by sawyer on 2019-02-11.
  *
@@ -7,20 +9,24 @@ package neusoft.sawyer.learn.tree;
  */
 public interface Tree<E> {
 
-    void create(E[] elements, int[][] children);
-
     /**
      * Node total.
+     *
+     * @return the int
      */
     int size();
 
     /**
      * Tree degree.
+     *
+     * @return the int
      */
     int degree();
 
     /**
      * Tree Depth.
+     *
+     * @return the int
      */
     int depth();
 
@@ -54,25 +60,64 @@ public interface Tree<E> {
     E getRoot();
 
     /**
-     * Get parent's children.
+     * 返回目标元素的索引
      *
      * @param e parent element.
      * @return the children.
      */
-    E[] getChildren(E e);
+    int[] getChildren(E e);
 
     /**
-     * Get child's parent.
+     * 获取匹配的元素索引
      *
-     * @param e the child element.
-     * @return the parent element, if not found element return null.
+     * @param index 索引
+     * @return 找到一个则返回 ，如果找不到则返回-1
      */
-    E getParent(E e);
+    int indexOf(E index);
+
+    /**
+     * Get e.
+     *
+     * @param index the index
+     * @return the e
+     */
+    E get(int index);
+
+    /**
+     * 获取父节点索引
+     *
+     * @param index the index
+     * @return 返回父节点索引 ，Root节点则返回-1
+     */
+    int getParent(int index);
 
     /**
      * Depth of element.
      *
      * @param e the element's depth
+     * @return the int
      */
     int depthOf(E e);
+
+    /**
+     * Contains boolean.
+     *
+     * @param e the e
+     * @return the boolean
+     */
+    boolean contains(E e);
+
+    /**
+     * Get path linked list [ ].
+     *
+     * @return the linked list [ ]
+     */
+    List<Integer>[] getPath();
+
+    /**
+     * Gets leaf node.
+     *
+     * @return the leaf node
+     */
+    List<Integer> getLeafNode();
 }

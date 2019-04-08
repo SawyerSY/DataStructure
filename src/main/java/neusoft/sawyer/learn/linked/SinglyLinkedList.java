@@ -40,12 +40,6 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     public SinglyLinkedList() {
     }
 
-    public SinglyLinkedList(E... es) {
-        for (E e : es) {
-            this.add(e);
-        }
-    }
-
     public SinglyLinkedList(Collection<? extends E> c) {
         this.addAll(c);
     }
@@ -153,6 +147,16 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return -1;
     }
 
+    @Override
+    public Object[] toArray() {
+        Object[] arrays = new Object[this.size];
+        int index = 0;
+        for (Node<E> x = this.first; Objects.nonNull(x); x = x.next) {
+            arrays[index++] = x.item;
+        }
+        return arrays;
+    }
+
     // endregion
 
 
@@ -231,7 +235,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     private void checkElementIndex(int index) {
         if (!this.isElementIndex(index)) {
-            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+            throw new IndexOutOfBoundsException(this.outOfBoundsMsg(index));
         }
     }
 
@@ -241,7 +245,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     private void checkPositionIndex(int index) {
         if (!this.isPositionIndex(index)) {
-            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+            throw new IndexOutOfBoundsException(this.outOfBoundsMsg(index));
         }
     }
 

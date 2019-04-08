@@ -58,4 +58,10 @@ public class SinglyLinkedListTest {
         LinkedList<Integer> linkedList = new SinglyLinkedList<>();
         System.out.println(linkedList);
     }
+
+    @Test
+    public void testToArray() {
+        LinkedList<Integer> linkedList = new SinglyLinkedList<>(Arrays.asList(1, 2, 3, 4, 5));
+        System.out.println(Arrays.toString(linkedList.toArray()));
+    }
 }
