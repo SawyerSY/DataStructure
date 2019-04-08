@@ -5,8 +5,6 @@ import java.util.NoSuchElementException;
 
 /**
  * Created by sawyer on 2019-02-01.
- *
- * @param <E> the type parameter
  */
 public interface LinkedList<E> {
 
@@ -89,4 +87,6 @@ public interface LinkedList<E> {
      * @return the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element
      */
     int indexOf(E e);
+
+    Object[] toArray();
 }

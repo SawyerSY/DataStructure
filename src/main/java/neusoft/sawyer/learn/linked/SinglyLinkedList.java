@@ -49,7 +49,6 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     // region 公共方法
 
-
     @Override
     public int size() {
         return this.size;
@@ -148,6 +147,16 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return -1;
     }
 
+    @Override
+    public Object[] toArray() {
+        Object[] arrays = new Object[this.size];
+        int index = 0;
+        for (Node<E> x = this.first; Objects.nonNull(x); x = x.next) {
+            arrays[index++] = x.item;
+        }
+        return arrays;
+    }
+
     // endregion
 
 
@@ -226,7 +235,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     private void checkElementIndex(int index) {
         if (!this.isElementIndex(index)) {
-            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+            throw new IndexOutOfBoundsException(this.outOfBoundsMsg(index));
         }
     }
 
@@ -236,7 +245,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     private void checkPositionIndex(int index) {
         if (!this.isPositionIndex(index)) {
-            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+            throw new IndexOutOfBoundsException(this.outOfBoundsMsg(index));
         }
     }
 
